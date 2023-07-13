@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4":{
+            "Controller\\":"controller/",
+            "Core\\":"core/",
+            "Views\\":"views/",
+            "Model\\":"model/",
+            "Url\\":"router.php",
+            "index\\":"index.php"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
+}

@@ -1,0 +1,108 @@
+.containers{
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    margin: 0 80px;
+    padding-top: 15px;
+}
+.headers{
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+form .fields{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+form .fields .inputs{
+    display: flex;
+    width: calc(100% / 2 - 2px);
+    flex-direction: column;
+}
+form .fields .input{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+}
+.input input{
+    outline: none;
+    font-size: 20px;
+    color: #2e2e2e;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.form{
+    padding-top: 40px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 7px;
+}
+
+
+
+.form .form-titulo{
+    color: #fff;
+    padding: 15px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 100;
+    border-radius: 7px;
+}
+
+.contenedor-inputs{
+    padding: 10px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input-48{
+    width: 30%;
+    margin-bottom: 20px;
+}
+.input-100{
+    width: 100%;
+    margin-bottom: 20px;
+}
+input{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+textarea{
+    border: 1px solid gray;
+}
+.form-register{
+    border-radius: 15px;
+    box-shadow: 7px 13px 37px #aaa;
+}
+.forms{
+    padding-top: 10px;
+    border-radius: 7px;
+    margin-left: 300px;
+}
+.form{
+    padding-top: 6px;
+    width: 100%;
+    max-width: 900px;
+    margin: 50px 450px;
+    border-radius: 7px;
+}
+.tarjeta{
+    padding-top: 10px;
+    margin-left: 10px;
+}
