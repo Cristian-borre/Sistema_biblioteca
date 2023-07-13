@@ -22,3 +22,5 @@ Admin: Privilegio de todos los modulos anteriormente mencionados para consultar,
 Empleado: Privilegio solo para consultar en los modulos usuarios, libros y prestamos, en el modulo prestamos tiene el privilegio de agregar y cambiar estado del prestamo (entregado, pendiente, reservado)
 
 Natural: Privilegio solo para consultar libros y hacer reservas de ellos.
+
+Nota: Crear env al descargar el proyecto.
