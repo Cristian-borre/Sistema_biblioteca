@@ -3,12 +3,11 @@ require_once('index.php');
 use Controller\PrestamosController;
 use Controller\LibrosController;
 use Controller\UsuarioController;
-use Core\Core;
 require_once(__DIR__.'/vendor/autoload.php'); 
 ?>
 
 <div class="main_content">
-    <div class="container mt-3">
+    <div class="container mx-auto">
         <div class="">
             <div class="container ">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-bs-whatever="@mdo">Nuevo Prestamo</button>
