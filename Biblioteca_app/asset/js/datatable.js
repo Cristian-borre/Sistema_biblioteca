@@ -1,17 +1,13 @@
 $(document).ready(function () {
-  var tabla_gastos= $('#tabla_ingresos').DataTable({
-   extend: 'collection',
-   processing: true,
-   'processing': true,
-   "ordering": false,
-   "order": [[ 0, "desc" ]],
-   "bDestroy": true,
-   buttons: [
-     {extend :'excel',
-       className: 'bg-light btn btn-outline-info mr-2' },
-     { extend: 'pdf',
-       className: 'bg-light btn btn-outline-info mr-2' }
-   ],});
-   
-  tabla_gastos.buttons(0, null).containers().appendTo('#menu_tabla_ingresos');
+  $('#tabla_ingresos').DataTable({
+    responsive: true,
+  });
+
+  $('#tabla_ingresos_length, #tabla_ingresos_info').addClass('hidden md:block');
+  $('#tabla_ingresos_length select').addClass('bg-white border border-gray-300 px-2 py-1 rounded');
+  $('#tabla_ingresos_wrapper').addClass('overflow-x-auto');
+  $('#tabla_ingresos_filter input').addClass('bg-white border border-gray-300 px-2 py-1 rounded');
+  $('#tabla_ingresos_paginate .pagination').addClass('flex')
+  $('#tabla_ingresos_paginate .paginate_button')
+    .addClass('border border-gray-300 text-black hover:bg-gray-300 mr-2 px-3 py-1 rounded');
 });

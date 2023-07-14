@@ -1,50 +1,51 @@
 <?php
 require_once('index.php');
+
 use Controller\UsuarioController;
-require_once(__DIR__.'/vendor/autoload.php'); 
+
+require_once(__DIR__ . '/vendor/autoload.php');
 ?>
 
-<div class="main_content">
-    <div class="container">
-        <div class="">
-            <div class="container">
-                <div id="menu_tabla_ingresos" class="header text-center text-dark">Lista de Persona </div>
-                <br>
-                <table class="table table-bordered" id="tabla_ingresos">
-                    <thead class="table-primary">
+<div class="ml-0 md:ml-[240px]">
+    <div class="bg-[#1E1A34] w-full h-16 shadow-xl border-l-2 border-b-2 border-gray-400 grid place-items-center text-2xl font-semibold text-white">Lista de Personas</div>
+    <div class="mt-4 md:p-2 lg:p-4 xl:p-10">
+        <div class="mx-4 lg:mx-4 xl:mx-8 2xl:mx-16 mt-8">
+            <div class="table-auto overflow-x-auto">
+                <table class="w-full md:w-full" id="tabla_ingresos">
+                    <thead class="bg-blue-200">
                         <tr>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Correo</th>
-                            <th>Telefono</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Documento</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Nombre</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Apellido</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Correo</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Telefono</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $usuarios = UsuarioController::GetAllPersona($_SESSION['token']);
+                        $usuarios = UsuarioController::GetAllPersona($_SESSION['token']);
                         ?>
                         <?php
-                    if($usuarios['message'] == 'Usuarios listados'){
-                        foreach($usuarios['data'] as $usuario) {?>
-                    <tr>
-                    <form class="form-inline">
-                        <td class="text-center"><?php echo $usuario['documento'] ?></td>
-                        <td class="text-center"><?php echo $usuario['nombre'] ?></td>
-                        <td class="text-center"><?php echo $usuario['apellido'] ?></td>
-                        <td class="text-center"><?php echo $usuario['email'] ?></td>
-                        <td class="text-center"><?php echo $usuario['telefono'] ?></td>
-                    </form>
-                    </tr>
-                    <?php }
-                    }else{?>
-                        <div class=" alert alert-danger">
-                          No existen registros
-                        </div>
-                    <?php }?>
+                        if ($usuarios['message'] == 'Usuarios listados') {
+                            foreach ($usuarios['data'] as $usuario) { ?>
+                                <tr>
+                                    <form>
+                                        <td class="p-4 text-base border border-gray-300 font-semibold text-gray-800 font-bold"><?php echo $usuario['documento'] ?></td>
+                                        <td class="p-4 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $usuario['nombre'] ?></td>
+                                        <td class="p-4 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $usuario['apellido'] ?></td>
+                                        <td class="p-4 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $usuario['email'] ?></td>
+                                        <td class="p-4 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $usuario['telefono'] ?></td>
+                                    </form>
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <div class="font-bold bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                                No existen registros
+                            </div>
+                        <?php } ?>
                     </tbody>
                 </table>
-                               
+
                 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
                 <!-- Option 2: Separate Popper and Bootstrap JS -->

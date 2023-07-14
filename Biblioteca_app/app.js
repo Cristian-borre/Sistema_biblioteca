@@ -10,6 +10,7 @@ side_i.forEach(side_i =>{
     side_i.addEventListener('click', () => {
         side_i.classList.toggle('hidden')
         side.classList.toggle('w-[240px]')
+        side.classList.remove('hidden')
     })
 })
 
@@ -17,6 +18,7 @@ icon_c.forEach(icon_c =>{
     icon_c.addEventListener('click', () => {
         side.classList.remove('w-[240px]')
         side_r.classList.remove('hidden')
+        side.classList.toggle('hidden')
     })
 })
 
@@ -25,7 +27,7 @@ lisElements.forEach(lisElements => {
 
         lisElements.classList.toggle('arrow');
         arrow.classList.toggle('rotate-180');
-        submenu.classList.toggle('opacity-100');
+        submenu.classList.toggle('hidden');
 
         let height = 0;
         let menu = lisElements.nextElementSibling;
@@ -35,4 +37,13 @@ lisElements.forEach(lisElements => {
         menu.style.height = `${height}px`;
     })
 });
+
+const openModalBtn = document.querySelectorAll('.btnmodal');
+const modal = document.querySelector('.staticModal');
+
+openModalBtn.forEach(openModalBtn =>{
+    openModalBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+})
 
