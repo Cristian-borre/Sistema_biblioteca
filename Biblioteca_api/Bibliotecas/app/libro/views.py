@@ -7,6 +7,23 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 
 # Create your views here.
+
+class LibroEmpleadoCountViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    queryset = LibroModel.objects.filter(estado=True)
+    serializer_class = LibroSerializer
+    model = LibroModel
+    permission_classes = [IsAuthenticated]
+
+    def list(self,request, *args, **kwargs):
+        try:
+            cant = self.queryset.count()
+            message = {'message':'Libros contados', 'data':cant}
+            return Response(message)
+        except Exception as ex:
+            responseData = 'excep ' + str(ex)
+            return Response(responseData)
+
 class LibroEmpleadoViewSet(viewsets.ReadOnlyModelViewSet):
     
     queryset = LibroModel.objects.all()

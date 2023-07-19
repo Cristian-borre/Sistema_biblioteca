@@ -19,7 +19,7 @@ try{
                         $_SESSION['token'] = $usuario['Datos']['token'];
                         $_SESSION['user_id'] = $usuario['Datos']['user_id'];
                         if($_SESSION['cargo'] == 1){
-                            Core::redir_log('./prestamos');
+                            Core::redir_log('./dashboard');
                         }else if($_SESSION['cargo'] == 2){
                             Core::redir_log('./prestamos2');
                         }else if($_SESSION['cargo'] == 3){

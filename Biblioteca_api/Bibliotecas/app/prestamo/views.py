@@ -3,10 +3,78 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializer import PrestamoSerializer,PrestamoUpdateSerializer
 from .models import PrestamoModel
-from rest_framework.decorators import action
+from app.libro.models import LibroModel
 from rest_framework.permissions import IsAuthenticated
+from django.db.models import Count
+from django.db.models.functions import ExtractDay, ExtractMonth
 
 # Create your views here.
+class PrestamoCountLibroViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    queryset = PrestamoModel.objects.all()
+    serializer_class = PrestamoSerializer
+    model = PrestamoModel
+    permission_classes = [IsAuthenticated]
+
+    def list(self,request, *args, **kwargs):
+        try:
+            resultados = []
+            resultados = []
+            resultado = PrestamoModel.objects.values('libro').annotate(total_prestamos=Count('libro')).order_by('-total_prestamos')[:5]
+
+            for prestamo in resultado:
+                libro_id = prestamo['libro']
+                libro = LibroModel.objects.get(id=libro_id)
+                resultados.append({
+                    'libro': libro.titulo,
+                    'total_prestamos': prestamo['total_prestamos']
+                })
+
+            message = {'message': 'Prestamos contados', 'data': resultados}
+            return Response(message)    
+        except Exception as ex:
+            responseData = 'excep ' + str(ex)
+            return Response(responseData)
+
+class PrestamoCountReportViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    queryset = PrestamoModel.objects.all()
+    serializer_class = PrestamoSerializer
+    model = PrestamoModel
+    permission_classes = [IsAuthenticated]
+
+    def list(self,request, *args, **kwargs):
+        try:
+            libros_prestados = PrestamoModel.objects.annotate(
+                mes= ExtractMonth('fecha_prestamo'),dia=ExtractDay('fecha_prestamo')).values('mes','dia').annotate(total_prestamos=Count('*')).order_by('mes','dia')
+            data = []
+            for libro in libros_prestados:
+                data.append({
+                    'mes': libro['mes'],
+                    'dia': libro['dia'],
+                    'total_prestamos': libro['total_prestamos']
+                })
+            message = {'message': 'Prestamos contados', 'data': data}
+            return Response(message)
+        except Exception as ex:
+            responseData = 'excep ' + str(ex)
+            return Response(responseData)
+
+class PrestamoCountViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    queryset = PrestamoModel.objects.all()
+    serializer_class = PrestamoSerializer
+    model = PrestamoModel
+    permission_classes = [IsAuthenticated]
+
+    def list(self,request, *args, **kwargs):
+        try:
+            cant = self.queryset.count()
+            message = {'message':'Prestamos contados', 'data':cant}
+            return Response(message)
+        except Exception as ex:
+            responseData = 'excep ' + str(ex)
+            return Response(responseData)
 
 class PrestamoViewSet(viewsets.ReadOnlyModelViewSet):
 

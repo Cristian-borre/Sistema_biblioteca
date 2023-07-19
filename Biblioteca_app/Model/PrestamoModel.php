@@ -28,6 +28,74 @@ class PrestamoModel{
         curl_close($curl);
     }
 
+    public function GetCountPrestamo($token) {
+        $curl = curl_init();
+        $url = 'http://127.0.0.1:8000/api/prestamo-count/';
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Token ' . $token
+            )
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($statusCode === 200) {
+            return $response;
+        } else {
+            return $statusCode;
+        }
+        curl_close($curl);
+    }
+
+    public function GetCountPrestamoReport($token) {
+        $curl = curl_init();
+        $url = 'http://127.0.0.1:8000/api/prestamo-count-report/';
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Token ' . $token
+            )
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($statusCode === 200) {
+            return $response;
+        } else {
+            return $statusCode;
+        }
+        curl_close($curl);
+    }
+
+    public function GetCountPrestamoLibro($token) {
+        $curl = curl_init();
+        $url = 'http://127.0.0.1:8000/api/prestamo-count-libro/';
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Token ' . $token
+            )
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($statusCode === 200) {
+            return $response;
+        } else {
+            return $statusCode;
+        }
+        curl_close($curl);
+    }
     
     public function AddPrestamo($libro,$persona,$fecha,$estado,$token) {
         $curl = curl_init();

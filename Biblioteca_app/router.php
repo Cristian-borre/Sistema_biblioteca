@@ -13,6 +13,9 @@
         $router->get('/login', function() {   
             require_once('./login.php');
         });
+        $router->get('/dashboard', function() {   
+            require_once('./dashboard.php');
+        });
         $router->get('/prestamos', function() {   
             require_once('./prestamos.php');
         });

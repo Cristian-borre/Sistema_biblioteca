@@ -1,51 +1,50 @@
 <?php
 require_once('index.php');
+
 use Controller\LibrosController;
-require_once(__DIR__.'/vendor/autoload.php'); 
+
+require_once(__DIR__ . '/vendor/autoload.php');
 ?>
 
-<div class="main_content">
-    <div class="container mt-3">
-        <div class="">
-            <div class="container col-xl-13">
-                <div id="menu_tabla_ingresos" class="header text-center text-dark">Lista de Libros </div>
-                <br>
-                <table class="table table-bordered" id="tabla_ingresos">
-                    <thead class="table-primary">
+<div class="ml-0 md:ml-[240px]">
+    <div class="bg-[#1E1A34] w-full h-16 shadow-xl border-l-2 border-b-2 border-gray-400 grid place-items-center text-2xl font-semibold text-white">Lista de Libros</div>
+    <div class="mt-4 md:p-2 lg:p-4 xl:p-10 h-[620px]">
+        <div class="mx-4 lg:mx-4 xl:mx-8 2xl:mx-16 mt-8 h-[500px]">
+            <div class="table-auto overflow-x-auto h-[550px]">
+                <table class="w-full md:w-full" id="tabla_ingresos">
+                    <thead class="bg-blue-200">
                         <tr>
-                            <th>img</th>
-                            <th>Titulo</th>
-                            <th>Autor</th>
-                            <th>Categoria</th>
-                            <th>Editorial</th>
-                            <th>Encuadernado</th>
-                            <th>Ejemplares</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">img</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Titulo</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Autor</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Categoria</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Editorial</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Encuadernado</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide border-b-gray-300 border border-blue-300 text-left">Ejemplares</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $libros = LibrosController::GetAllLibro($_SESSION['token']);
+                        $libros = LibrosController::GetAllLibro($_SESSION['token']);
                         ?>
                         <?php
-                        if($libros['message'] == 'Libros listados'){
-                            foreach($libros['data'] as $libros) {?>
-                            <tr>
-                        <form class="form-inline" method="POST" action="#">
-                            <td class="text-center"><img width="80" height="80" src="./upload/<?php echo $libros['img'] ?>" alt=""></td>
-                            <td class="text-center"><?php echo $libros['titulo']?></td>
-                            <td class="text-center"><?php echo $libros['autor']?></td>
-                            <td class="text-center"><?php echo $libros['categoria']?></td>
-                            <td class="text-center"><?php echo $libros['editorial']?></td>
-                            <td class="text-center"><?php echo $libros['encuadernado']?></td>
-                            <td class="text-center"><?php echo $libros['ejemplares']?></td>
-                        </form>
-                        </tr>
-                        <?php }
-                        }else{?>
-                        <div class=" alert alert-danger">
-                          No existen registros
-                        </div>
-                        <?php }?>
+                        if ($libros['message'] == 'Libros listados') {
+                            foreach ($libros['data'] as $libros) { ?>
+                                <tr>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><img width="50" height="50" src="./upload/<?php echo $libros['img'] ?>" alt=""></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800 font-bold"><?php echo $libros['titulo'] ?></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $libros['autor'] ?></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $libros['categoria'] ?></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $libros['editorial'] ?></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $libros['encuadernado'] ?></td>
+                                    <td class="p-3 text-base border border-gray-300 font-semibold text-gray-800"><?php echo $libros['ejemplares'] ?></td>
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <div class="font-bold bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                                No existen registros
+                            </div>
+                        <?php } ?>
                     </tbody>
                 </table>
                 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

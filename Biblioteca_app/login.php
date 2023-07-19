@@ -31,7 +31,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
                     <label class="font-semibold text-base">Usuario</label>
                     <input type="text" class="bg-gray-100 mb-5 py-1 border border-gray-300 rounded-md" name="usuario">
                     <label class="font-semibold text-base">Contraseña</label>
-                    <input type="text" class="bg-gray-100 py-1 border border-gray-300 rounded-md" name="password">
+                    <input type="password" class="bg-gray-100 py-1 border border-gray-300 rounded-md" name="password">
                 </div>
                 <div class="grid place-items-center">
                     <button class="bg-[#1E1A34] text-white py-2 font-semibold px-4 rounded-md hover:bg-[#4B3F87]" type="submit">INGRESAR</button>

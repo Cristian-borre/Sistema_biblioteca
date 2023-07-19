@@ -10,6 +10,22 @@ from rest_framework.decorators import action
 
 # Create your views here.
 
+class UsuarioEmpleadoCountViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    queryset = UsuarioModel.objects.filter(cargo=3,estado=True)
+    serializer_class = UsuarioSerializer
+    model = UsuarioModel
+    permission_classes = [IsAuthenticated]
+
+    def list(self,request, *args, **kwargs):
+        try:
+            cant = self.queryset.count()
+            message = {'message':'Usuarios contados', 'data':cant}
+            return Response(message)
+        except Exception as ex:
+            responseData = 'excep ' + str(ex)
+            return Response(responseData)
+
 class UsuarioEmpleadoViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = UsuarioModel.objects.all()        

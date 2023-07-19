@@ -50,8 +50,31 @@ class LibrosModel{
         }
         curl_close($curl);
     }
+
+    public function GetCountLibro($token) {
+        $curl = curl_init();
+        $url = 'http://127.0.0.1:8000/api/libro-empleado-count/';
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'GET',  
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Token ' . $token
+            )
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($statusCode === 200) {
+            return $response;
+        } else {
+            return $statusCode;
+        }
+        curl_close($curl);
+    }
     
-    public function AddLibros($titulo,$img,$autor,$categoria,$editorial,$encuadernado,$ejemplares,$token) {
+    static public function AddLibros($titulo,$img,$autor,$categoria,$editorial,$encuadernado,$ejemplares,$token) {
         $curl = curl_init();
         $url = 'http://127.0.0.1:8000/api/libro/';
         $data = array(
