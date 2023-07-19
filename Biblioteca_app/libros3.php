@@ -11,8 +11,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
         $libros = LibrosController::GetAllLibro($_SESSION['token']);
         if ($libros['message'] == 'Libros listados') {
             foreach ($libros['data'] as $libro) { ?>
-                <div class="rounded-lg w-80 overflow-hidden shadow-lg">
-                    <img class="w-80 h-80 rounded-t-lg" src="./upload/<?php echo $libro['img'] ?>" alt="Libro image">
+                <div class="rounded-lg w-72 overflow-hidden shadow-lg">
+                    <img class="w-80 h-72 rounded-t-lg" src="./upload/<?php echo $libro['img'] ?>" alt="Libro image">
                     <form action="./addprestamoscontroller" method="POST">
                         <div class="px-6 py-4">
                             <h3 class="text-gray-700 font-bold text-xl mb-2"><?php echo $libro['titulo'] ?></h3>

@@ -12,10 +12,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 <div class="ml-0 md:ml-[240px]">
     <div class="bg-[#1E1A34] w-full h-16 shadow-xl border-l-2 border-b-2 border-gray-400 grid place-items-center text-2xl font-semibold text-white">Lista de Libros</div>
-    <div class="mt-4 md:p-2 lg:p-4 xl:p-10 h-[620px]">
+    <div class="md:p-2 lg:p-4 xl:p-10 h-[600px]">
         <button type="button" class="bg-blue-600 hover:bg-blue-700 ml-10 md:ml-8 xl:ml-18 2xl:ml-20 text-white px-4 py-2 font-semibold rounded-lg" id="Addmodal">Nuevo Libro</button>
         <div class="mx-4 lg:mx-4 xl:mx-8 2xl:mx-16 mt-8 h-[500px]">
-            <div class="table-auto overflow-x-auto h-[550px]">
+            <div class="table-auto overflow-x-auto h-[580px]">
                 <table class="w-full md:w-full" id="tabla_ingresos">
                     <thead class="bg-blue-200">
                         <tr>
