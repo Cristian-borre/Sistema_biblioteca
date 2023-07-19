@@ -59,8 +59,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
         <?php } else if ($_SESSION['cargo'] == 2) { ?>
 
-            <i class="text-4xl cursor-pointer md:hidden icon p-4 bx bx-menu-alt-left"></i>
-            <div class="fixed bg-[#1E1A34] sidebar h-screen w-0 md:w-[240px]">
+            <i class="text-4xl cursor-pointer md:hidden icon text-white fixed p-4 bx bx-menu-alt-left"></i>
+            <div class="fixed bg-[#1E1A34] sidebar z-10 h-full w-0 hidden md:block md:w-[240px]">
                 <div class="flex h-full flex-col">
                     <div class="flex w-full justify-center justify-around items-center py-6 border-b-2 border-gray-500">
                         <h2 class="ml-14 md:ml-0 text-white font-semibold text-4xl">Menu</h2>

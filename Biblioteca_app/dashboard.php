@@ -63,7 +63,7 @@ use Controller\LibrosController;
                 </div>
             </div>
         </div>
-        <div class="mt-5 h-96 grid grid-cols-1  row-span-3 md:grid-cols-3 p-4 gap-6">
+        <div class="mt-5 h-96 grid grid-cols-1 row-span-3 md:grid-cols-1 lg:grid-cols-3 p-4 gap-6">
             <div class="shadow-xl mt-5 h-full col-span-2">
                 <?php
                 $data = PrestamosController::GetCountPrestamoReport($_SESSION['token']);
@@ -75,7 +75,7 @@ use Controller\LibrosController;
                 </script>
                 <script src="./asset/js/ChartLine.js"></script>
             </div>
-            <div class="shadow-xl mt-5 h-full w-96">
+            <div class="shadow-xl mt-5 h-full w-full">
                 <?php
                 $data = PrestamosController::GetCountPrestamoLibro($_SESSION['token']);
                 $jsonData = json_encode($data['data']);

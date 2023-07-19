@@ -5,8 +5,8 @@ use Controller\LibrosController;
 
 require_once(__DIR__ . '/vendor/autoload.php');
 ?>
-<div class="p-4">
-    <div class="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="p-4 h-[720px] overflow-y-auto">
+    <div class="grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <?php
         $libros = LibrosController::GetAllLibro($_SESSION['token']);
         if ($libros['message'] == 'Libros listados') {
